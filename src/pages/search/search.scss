@@ -1,0 +1,29 @@
+﻿page-search {
+  .scroll-content {
+    top: -74px !important;
+    padding-top: 84px !important;
+  }
+
+  .hide-header {
+    transition: top 0.5s ease;
+    top: -74px;
+  }
+
+  .show-header {
+    transition: top 0.5s ease;
+    top: 0px;
+  }
+
+  .background-image {
+    /*background-image: url(https://ununsplash.imgix.net/photo-1421091242698-34f6ad7fc088?fit=crop&fm=jpg&h=650&q=75&w=950);*/
+    background-size: cover;
+    background-position: center;
+    /*height: 50vw;*/
+  }
+
+  .main-content {
+    padding: 20px;
+    background-color: white;
+    position: absolute;
+  }
+}

@@ -1,0 +1,34 @@
+﻿<!-- Home page -->
+
+<ion-header [ngClass]="{'hide-header':showheader,'show-header':hideheader}">
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+      <ion-searchbar no-padding [(ngModel)]="searchTerm" animated="true" placeholder="Rechercher un nom dans l'annuaire" (ionInput)="setFilteredItems()">
+      </ion-searchbar>
+  </ion-navbar>
+  
+  
+</ion-header>
+
+
+
+<ion-content padding >
+
+  <ion-list>
+      <button ion-item *ngFor="let people of peoples" (click)="openPage(Resultat, people)">
+          <ion-avatar item-left>
+            Photo
+          </ion-avatar>
+          <h3 text-center>
+            {{ people.firstName}} {{ people.name }}
+          </h3>
+        <h4 text-center style="color: lightgrey"> {{people.mobile}}</h4>
+      </button>
+  </ion-list>
+  
+</ion-content>
+
+

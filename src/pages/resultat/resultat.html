@@ -1,0 +1,104 @@
+﻿<!--
+  Generated template for the Resultat page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title text-center>
+      {{data.firstName}}
+    </ion-title>
+   
+    <ion-buttons end>
+      <button ion-button icon-only (click)="shareContact()">
+        <ion-icon name="share"></ion-icon>
+      </button>
+      <button ion-button icon-only (click)="shareMail()">
+        <ion-icon name="home"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+
+  <div class="h41">
+    <h4 class="h42">Coordonnées</h4>
+  </div>
+
+  <ion-list>
+    <ion-item class="liste">
+      <ion-grid no-padding>
+        <ion-row>
+          <ion-col col-3>
+            <img src="{{data.photo}}" />
+          </ion-col>
+          <ion-col text-center> {{ data.firstName }} {{ data.name }} </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+
+    <button ion-item ion-compose text-right (click)="writeMail(data.mail)" class="liste">
+      Mail
+    </button>
+
+    <ion-item>
+      <ion-row (click)="showConfirm(data.bureau)">
+        <ion-col col-3>
+          Bureau
+        </ion-col>
+        <ion-col text-right> {{data.bureau}} </ion-col>
+      </ion-row>
+    </ion-item>
+
+    <ion-item (click)="showConfirm(data.mobile)">
+      <ion-row>
+        <ion-col>
+          <ion-icon icon-left name="chatbubbles" (click)="console()"></ion-icon>
+        </ion-col>
+        <ion-col>
+          <div text-right>
+            Mobile
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+
+    <ion-item text-right class="liste">
+      Accueil
+    </ion-item>
+</ion-list>
+
+  <h4 color="secondary">Informations complémentaires</h4>
+
+  <div>
+    <ion-list>
+      <ion-item text-right class="liste">
+        Manager
+      </ion-item>
+      <button ion-item text-right class="liste">
+        Hobbies
+      </button>
+    </ion-list>
+  </div>
+
+</ion-content>
+
+
+<ion-footer style="color:#2b8905">
+  <ion-row text-center>
+    <ion-col id="ioncol">
+      <ion-icon name="search">
+      </ion-icon>
+      <div> Recherche</div>
+    </ion-col>
+    <ion-col id="ioncol" (click)="openPage()">
+      <ion-icon name="barcode">
+      </ion-icon>
+      <div>Mon profil</div>
+    </ion-col>
+  </ion-row>
+</ion-footer>
