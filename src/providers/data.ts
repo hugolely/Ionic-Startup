@@ -42,4 +42,23 @@ export class Data {
             });
         }
     }
+
+    decale(mot, lettre: string) {
+        var i = 0;
+        var newMot = "";
+
+        for (i = 0; i < mot.length - 1; i++) {
+            newMot += mot[i + 1];
+        }
+        newMot += lettre;
+
+        return newMot;
+        
+    }
+
+    test() {
+        var testDecale ="etest";
+        var lettre = "é";
+        this.decale(testDecale, lettre);
+    }
 }

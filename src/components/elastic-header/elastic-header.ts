@@ -1,7 +1,13 @@
 ﻿import { Directive, ElementRef, Renderer } from '@angular/core';
 
+/**
+ * Generated class for the ElasticHeader directive.
+ *
+ * See https://angular.io/docs/ts/latest/api/core/index/DirectiveMetadata-class.html
+ * for more info on Angular Directives.
+ */
 @Directive({
-    selector: '[elastic-header]'
+  selector: '[elastic-header]' // Attribute selector
 })
 export class ElasticHeader {
 
@@ -15,7 +21,6 @@ export class ElasticHeader {
     ticking: any;
 
     constructor(public element: ElementRef, public renderer: Renderer) {
-
     }
 
     ngOnInit() {
@@ -61,4 +66,5 @@ export class ElasticHeader {
         this.ticking = false;
 
     }
-} 
+
+}

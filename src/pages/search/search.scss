@@ -1,12 +1,30 @@
 ﻿page-search {
+  header {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    font-family: 'Bookman Old Style', serif;
+  }
+
+  h1 {
+    font-weight: 200;
+    font-size: large;
+    color: white;
+    font-family: 'MS Sans Serif', Geneva, sans-serif;
+  }
+
+  ion-list {
+    border-top: groove;
+  }
+
   .scroll-content {
-    top: -74px !important;
-    padding-top: 84px !important;
+    top: -56px !important;
+    padding-top: 56px !important;
   }
 
   .hide-header {
     transition: top 0.5s ease;
-    top: -74px;
+    top: -150px;
   }
 
   .show-header {
@@ -18,12 +36,21 @@
     /*background-image: url(https://ununsplash.imgix.net/photo-1421091242698-34f6ad7fc088?fit=crop&fm=jpg&h=650&q=75&w=950);*/
     background-size: cover;
     background-position: center;
-    /*height: 50vw;*/
+    border: groove;
   }
 
   .main-content {
     padding: 20px;
     background-color: white;
     position: absolute;
+  }
+
+  .fab-test {
+    margin: 0px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    text-overflow: ellipsis;
   }
 }

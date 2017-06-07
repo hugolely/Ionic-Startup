@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 import { AlertController } from 'ionic-angular';
 
 import { SocialSharing } from '@ionic-native/social-sharing';
+import { Data } from '../../providers/data';
 
 import { File } from '@ionic-native/file';
 
@@ -32,7 +33,8 @@ export class ResultatPage {
         public navParams: NavParams,
         public alertCtrl: AlertController,
         private socialSharing: SocialSharing,
-        private file: File) {
+        private file: File,
+        private dataService: Data) {
 
       // get the data from previous page
         this.data = navParams.get('data');
@@ -72,27 +74,27 @@ export class ResultatPage {
         console.log("sms sending");
     }
 
-    openPage(page) {
-        this.navCtrl.setRoot(page);
+    openPage(page, data) {
+        // navigate to the new page if it is not the current page
+        this.navCtrl.push(page, { data });
     }
 
     shareContact() {
         this.socialSharing.share("hello", null, null, null);
     }
 
-    shareMail() {
-        this.socialSharing.shareViaEmail("Hello", "Test", ["hule@hotmail.fr"], null, null, null)
-    }
-
 
   ionViewDidLoad() {
       console.log('ionViewDidLoad Resultat');
   }
-
-    // Test writing mail
+    
   createFileIo() {
       alert(this.file.getFreeDiskSpace());
       this.file.createFile("premierTest/temp", "vCard", true).then(_ => alert('Directory exists')).catch(err => alert('Directory doesnt exist'));;
+  }
+
+  test() {
+      this.dataService.test();
   }
 
 }

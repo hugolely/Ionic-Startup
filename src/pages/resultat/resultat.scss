@@ -4,10 +4,28 @@
     margin-bottom: 10px;
   }
 
-  .h41 {
+  .title{
+    font-weight: 400;
+    color:white;
+  }
+
+  h5 {
     background-color: #f0f0f0;
     height: auto;
     min-height: 30px;
     vertical-align: middle;
+    font-weight: 400
+  }
+
+
+  .subheader {
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    height: 30px;
+    padding-left: 10px;
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: medium;
   }
 }

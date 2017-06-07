@@ -5,6 +5,7 @@ import { Content } from 'ionic-angular';
 import { getData } from '../resultat/getData';
 import { Data } from '../../providers/data';
 import { Http } from '@angular/http';
+import { Keyboard } from '@ionic-native/keyboard';
 import 'rxjs/add/operator/map';
 
 /**
@@ -30,7 +31,9 @@ export class SearchPage {
     showheader: boolean;
     hideheader: boolean;
     headercontent: any;
+
     searchTerm: string = '';
+
     items: any;
 
     Resultat = ResultatPage;
@@ -42,7 +45,8 @@ export class SearchPage {
         public renderer: Renderer, public myElement: ElementRef,
         private getData: getData,
         private http: Http,
-        public dataService: Data) {
+        public dataService: Data,
+        private keyboard: Keyboard) {
         //this.initializeItems()
 
         this.showheader = false;
@@ -54,12 +58,13 @@ export class SearchPage {
             console.log("what is in the data ", data);
             this.peoples = data;
         });
-  }
+    }
     
 
   ionViewDidLoad() {
       console.log('ionViewDidLoad Search');
       this.setFilteredItems();
+      this.keyboard.show();
   }
 
     // filter the searched items

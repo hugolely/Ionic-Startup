@@ -15,20 +15,14 @@
       <button ion-button icon-only (click)="shareContact()">
         <ion-icon name="share"></ion-icon>
       </button>
-      <button ion-button icon-only (click)="shareMail()">
-        <ion-icon name="home"></ion-icon>
-      </button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content>
-
-  <div class="h41">
-    <h4 class="h42">Coordonnées</h4>
-  </div>
-
+  
+    <div no-margin class="subheader">Coordonnées</div>
   <ion-list>
     <ion-item class="liste">
       <ion-grid no-padding>
@@ -41,9 +35,13 @@
       </ion-grid>
     </ion-item>
 
-    <button ion-item ion-compose text-right (click)="writeMail(data.mail)" class="liste">
-      Mail
-    </button>
+    <ion-item ion-compose text-left (click)="writeMail(data.mail)">
+      <ion-row (click)="writeMail(data.mail)">
+        <ion-col>          
+          Mail
+        </ion-col>
+      </ion-row>
+    </ion-item>
 
     <ion-item>
       <ion-row (click)="showConfirm(data.bureau)">
@@ -54,36 +52,53 @@
       </ion-row>
     </ion-item>
 
-    <ion-item (click)="showConfirm(data.mobile)">
+    <ion-item >
       <ion-row>
-        <ion-col>
-          <ion-icon icon-left name="chatbubbles" (click)="console()"></ion-icon>
-        </ion-col>
-        <ion-col>
-          <div text-right>
+        <ion-col col-4>
+          <div>
             Mobile
           </div>
+        </ion-col>
+        <ion-col col-1>
+          <ion-icon name="chatbubbles" (click)="console()"></ion-icon>
+        </ion-col>
+        <ion-col (click)="showConfirm(data.mobile)" text-right>
+
         </ion-col>
       </ion-row>
     </ion-item>
 
-    <ion-item text-right class="liste">
-      Accueil
+    <ion-item>
+      <ion-row>
+        <ion-col>        
+        Accueil
+        </ion-col>
+      </ion-row>
     </ion-item>
 </ion-list>
 
-  <h4 color="secondary">Informations complémentaires</h4>
+  <div class="subheader">Informations complémentaires</div>
 
   <div>
     <ion-list>
-      <ion-item text-right class="liste">
-        Manager
+      <ion-item>
+        <ion-row (click)="openPage(Resultat, people.manager)">
+          <ion-col>
+            Manager
+          </ion-col>
+        </ion-row>
       </ion-item>
-      <button ion-item text-right class="liste">
-        Hobbies
-      </button>
+      <ion-item>
+        <ion-row>
+          <ion-col>
+            Hobbies
+          </ion-col>
+        </ion-row>
+      </ion-item>
     </ion-list>
   </div>
+
+  <button ion-button (click)="test()">ACME</button>
 
 </ion-content>
 
@@ -95,7 +110,7 @@
       </ion-icon>
       <div> Recherche</div>
     </ion-col>
-    <ion-col id="ioncol" (click)="openPage()">
+    <ion-col (click)="openPage()">
       <ion-icon name="barcode">
       </ion-icon>
       <div>Mon profil</div>

@@ -7,6 +7,7 @@ import { getData } from '../pages/resultat/getData';
 
 import { SearchPage } from '../pages/search/search';
 import { ResultatPage } from '../pages/resultat/resultat';
+import { ElasticHeader } from '../components/elastic-header/elastic-header';
 
 import { Data } from '../providers/data';
 import { getDataT } from '../providers/getData';
@@ -16,12 +17,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { File } from '@ionic-native/file';
+import { Keyboard } from '@ionic-native/keyboard';
 
 @NgModule({
   declarations: [
     MyApp,
       SearchPage,
-      ResultatPage
+      ResultatPage,
+      ElasticHeader
   ],
   imports: [
       BrowserModule,
@@ -43,7 +46,8 @@ import { File } from '@ionic-native/file';
       getData,
       Data,
       SocialSharing,
-      File
+      File,
+      Keyboard
 
   ]
 })
