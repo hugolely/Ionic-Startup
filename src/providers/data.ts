@@ -2,6 +2,7 @@
 import { getDataT } from './getData';
 import { Http } from '@angular/http';
 import 'rxjs';
+import { File } from '@ionic-native/file';
 
 /*
   Generated class for the Data provider.
@@ -14,19 +15,11 @@ export class Data {
 
     items: any;
     peoples: Array<{ firstName: string, name: string, mail: string, bureau: string, }>;
-    constructor(public http: Http, public getData: getDataT) {
-
-        //this.items = [
-        //    { title: 'one' },
-        //    { title: 'two' },
-        //    { title: 'three' },
-        //    { title: 'four' },
-        //    { title: 'five' },
-        //    { title: 'six' }
-        //];
-
+    constructor(public http: Http,
+        public getData: getDataT,
+        private file: File) {
+        
         this.getData.getData().subscribe((data) => {
-            console.log("what is in the data ", data);
             this.peoples = data;
         });
     }
@@ -60,5 +53,21 @@ export class Data {
         var testDecale ="etest";
         var lettre = "é";
         this.decale(testDecale, lettre);
+    }
+
+    createVCF(data){
+        this.file.writeFile(this.file.dataDirectory, 'contact.vcf',
+            `BEGIN:VCARD
+VERSION:3.0
+N:`+ data.name + `;` + data.firstName + `;;
+FN:`+ data.firstName + ' ' + data.name + `
+ORG:SERVICES INTERNES FRANCE;SOLUTIONS APPLICATIVES MOBILITE
+TITLE:DEVELOPPEUR INFORMATIQUE
+TEL;TYPE=GSM,MSG:`+ data.bureau + `
+TEL;TYPE=WORK,VOICE:03 28 80 80 80
+EMAIL;TYPE=PREF,INTERNET:`+ data.mail + `
+REV:2017-06-13T15:58:29Z
+END:VCARD`
+            , true)
     }
 }
