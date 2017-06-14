@@ -1,10 +1,4 @@
 ﻿page-search {
-  header {
-    margin-top: 15px;
-    margin-bottom: 15px;
-    overflow: hidden;
-    font-family: 'Bookman Old Style', serif;
-  }
 
   h1 {
     font-weight: 200;
@@ -13,30 +7,22 @@
     font-family: 'MS Sans Serif', Geneva, sans-serif;
   }
 
-  ion-list {
-    border-top: groove;
-  }
 
-  .scroll-content {
+  /*.scroll-content {
     top: -56px !important;
     padding-top: 56px !important;
+  }*/
+
+
+  .hide-footer {
+    /*transition: 0.10s ease;*/
+    bottom: 0px;
   }
 
-  .hide-header {
-    transition: top 0.5s ease;
-    top: -150px;
-  }
-
-  .show-header {
-    transition: top 0.5s ease;
-    top: 0px;
-  }
-
-  .background-image {
-    /*background-image: url(https://ununsplash.imgix.net/photo-1421091242698-34f6ad7fc088?fit=crop&fm=jpg&h=650&q=75&w=950);*/
-    background-size: cover;
-    background-position: center;
-    border: groove;
+  .show-footer {
+    transition-delay: 0.2s;
+    /*transition: 0.10s ease;*/
+    bottom: -125px;
   }
 
   .main-content {
@@ -45,12 +31,15 @@
     position: absolute;
   }
 
-  .fab-test {
-    margin: 0px;
+  .fab {
+    margin-bottom: 10px;
     width: 40px;
     height: 40px;
-    line-height: 40px;
+    line-height:40px;
     text-align: center;
     text-overflow: ellipsis;
+    font-size: 50px;
   }
+
+
 }

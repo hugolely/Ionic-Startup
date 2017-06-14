@@ -1,24 +1,12 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+﻿import { Component, ViewChild } from '@angular/core';
+import { Content } from 'ionic-angular';
 
-/**
- * Generated class for the Profil page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
-@IonicPage()
 @Component({
-  selector: 'page-profil',
-  templateUrl: 'profil.html',
+    templateUrl: 'profil.html',
 })
-export class Profil {
+export class ProfilPage {
+    // We bind content to the shrinkage attribute in the HTML template
+    @ViewChild(Content) content: Content;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad Profil');
-  }
-
+    constructor() { }
 }

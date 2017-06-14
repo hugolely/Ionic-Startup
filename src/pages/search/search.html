@@ -1,24 +1,26 @@
 ﻿<!-- Home page -->
 
 <ion-header> <!--[ngClass]="{'hide-header':showheader,'show-header':hideheader}">-->
-  <ion-navbar color="primary">
+  <ion-navbar color="primary" (tap)="scrollToTop(300)">
     <h1 text-center no-margin> Annuaire LMFR   </h1>
+
+    <ion-buttons end>
+      <button ion-button icon-only (tap)="showRadio()">
+        <ion-icon name="logo-buffer"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
-  
 </ion-header>
 
 
+<ion-content elastic-header> <!-- Nécessaire ou pas ?-->
+  <ion-toolbar color="primary">
+  <ion-searchbar no-padding [(ngModel)]="searchTerm" animated="true" placeholder="Rechercher un nom dans l'annuaire" (ionInput)="setFilteredItems()">
+  </ion-searchbar>
+ </ion-toolbar>
 
-<ion-content elastic-header>
-  <ion-toolbar color="primary"><ion-searchbar no-padding [(ngModel)]="searchTerm" animated="true" placeholder="Rechercher un nom dans l'annuaire" (ionInput)="setFilteredItems()">
-</ion-searchbar></ion-toolbar>
-
-  <!--<div class="background-image">
-    <ion-searchbar no-padding [(ngModel)]="searchTerm" animated="true" placeholder="Rechercher un nom dans l'annuaire" (ionInput)="setFilteredItems()">
-    </ion-searchbar>
-  </div>-->
   <ion-list>
-      <button ion-item *ngFor="let people of peoples" (click)="openPage(Resultat, people)">
+      <button ion-item *ngFor="let people of peoples" (tap)="openPageWithData(Resultat, people)">
           <ion-avatar item-left>
             Photo
           </ion-avatar>
@@ -28,11 +30,30 @@
         <h4 text-center style="color: lightgrey"> {{people.mobile}}</h4>
       </button>
   </ion-list>
-
-  <ion-fab bottom right>
-    <button ion-fam mini class="fab-test"><ion-icon name="arrow-round-up"></ion-icon></button>
-  </ion-fab>
   
+  <ion-fab bottom right [@fade]="fadeState"
+           [ngClass]="{'hide-footer':showfooter,'show-footer':hidefooter}">
+    <button ion-fab (tap)="scrollToTop(300)">
+      <ion-icon name="arrow-round-up"></ion-icon>
+    </button>
+  </ion-fab>
+
 </ion-content>
+
+<ion-footer style="color:#2b8905">
+  <ion-row text-center>
+    <ion-col id="ioncol">
+      <ion-icon name="search">
+      </ion-icon>
+      <div> Recherche</div>
+    </ion-col>
+    <ion-col (tap)="openPage(Profil)">
+      <ion-icon name="barcode">
+      </ion-icon>
+      <div>Mon profil</div>
+    </ion-col>
+  </ion-row>
+ 
+</ion-footer>
 
 

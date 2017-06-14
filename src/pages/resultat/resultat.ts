@@ -38,8 +38,15 @@ export class ResultatPage {
 
       // get the data from previous page
         this.data = navParams.get('data');
-        console.log(this.data);
+
+        this.file.checkFile(this.file.dataDirectory, 'contact.vcf').then(_ => {
+            this.file.removeFile(this.file.dataDirectory, 'contact.vcf').then(_ =>
+                this.dataService.createVCF(this.data)
+        )})
+            .catch(err => this.dataService.createVCF(this.data));
+        
     }
+
 
     
     // call the number
@@ -66,21 +73,22 @@ export class ResultatPage {
         confirm.present();
     }
 
-    writeMail(wrd) {
-        window.location = 'mailto:wrd';
+    // Send mail to
+    writeMail(mail) {
+        window.open('mailto:' + mail);
     }
 
-    console() {
-        console.log("sms sending");
+    // Send SMS to
+    console(numero) {
+        window.open('sms:' + numero);
     }
 
     openPage(page, data) {
-        // navigate to the new page if it is not the current page
         this.navCtrl.push(page, { data });
     }
 
     shareContact() {
-        this.socialSharing.share("hello", null, null, null);
+        this.socialSharing.share(null, null, this.file.dataDirectory + '/contact.vcf', null);
     }
 
 
@@ -89,12 +97,7 @@ export class ResultatPage {
   }
     
   createFileIo() {
-      alert(this.file.getFreeDiskSpace());
-      this.file.createFile("premierTest/temp", "vCard", true).then(_ => alert('Directory exists')).catch(err => alert('Directory doesnt exist'));;
-  }
-
-  test() {
-      this.dataService.test();
+      this.file.createFile(this.file.dataDirectory, "vCard", false).then(_ => alert('File created')).catch(err => alert('File not created'));
   }
 
 }
